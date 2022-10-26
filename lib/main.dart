@@ -1,115 +1,376 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+        home: Scaffold(
+      body: ListView(
+        padding: const EdgeInsets.only(top:50,left:20,right:20),
+        children : <Widget> [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children : [
+              Column(
+                children : [
+                  Text(
+                    "Shoes",
+                    style : TextStyle(fontSize : 32,fontWeight : FontWeight.bold)
+                  )
+                ]
+              ),
+              Column(
+                children : [
+                  CircleAvatar(
+                    child : Image.network('https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png'),
+                  ),
+                ]
+              ),
+            ]
+          ),
+          SizedBox(
+            height : 24,
+          ),
+          Container(
+            height : 120,
+            decoration : BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              color : Color.fromARGB(255, 210, 185, 250),
+              boxShadow : [
+              BoxShadow(
+                color : Color.fromARGB(255, 210, 185, 250).withOpacity(0.5),
+                spreadRadius : 5,
+                blurRadius : 7,
+                offset : Offset(0,3)
+              )
+            ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            child : Container(
+              padding : const EdgeInsets.all(10),
+              child : Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children : [
+                Container(
+                  margin : const EdgeInsets.only(left : 10,top : 8),
+                  width : 170,
+                  child : Column(
+                    children : [
+                      Container(
+                        child : Text(
+                          "Nike SB Zoom Blazer Mid Premium",
+                          style : TextStyle(fontSize : 16,height : 1.2)
+                        ),
+                      ),
+                      Container(
+                        margin : const EdgeInsets.only(top : 24),
+                        width : 200,
+                        child : Text(
+                          "8,795",
+                          style : TextStyle(fontSize : 14)
+                        )
+                      )
+                    ]
+                  )
+                ),
+                Container(
+                  width : 120,
+                  child : Image.network("image.png")
+                )
+              ]
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+            )
+          ),
+          SizedBox(
+            height : 20,
+          ),
+         Container(
+            height : 120,
+            decoration : BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              color : Color.fromARGB(255, 178, 244, 247),
+              boxShadow : [
+              BoxShadow(
+                color : Color.fromARGB(255, 178, 244, 247).withOpacity(0.5),
+                spreadRadius : 5,
+                blurRadius : 7,
+                offset : Offset(0,3)
+              )
+            ],
+            ),
+            child : Container(
+              padding : const EdgeInsets.all(10),
+              child : Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children : [
+                Container(
+                  margin : const EdgeInsets.only(left : 10,top : 8),
+                  width : 170,
+                  child : Column(
+                    children : [
+                      Container(
+                        child : Column(
+                          children : [
+                            Text(
+                          "Nike Air Zoom Pegasus",
+                          style : TextStyle(fontSize : 16)
+                        ),
+                            Container(
+                              margin : const EdgeInsets.only(top : 4),
+                              width : 165,
+                              child : 
+                              Text(
+                          "Men's Rood Racing Shoe",
+                          style : TextStyle(fontSize : 13),
+                          textAlign : TextAlign.left,
+                        ),
+                            )
+                          ]
+                        )
+                      ),
+                      Container(
+                        margin : const EdgeInsets.only(top : 24,left : 5),
+                        width : 200,
+                        child : Text(
+                          "9,995",
+                          style : TextStyle(fontSize : 14)
+                        )
+                      )
+                    ]
+                  )
+                ),
+                Container(
+                  width : 120,
+                  child : Image.network("https://img2.pngdownload.id/20180927/fly/kisspng-sports-shoes-nike-air-zoom-pegasus-34-mens-adidas-nike-zoom-pegasus-33-gs-laufschuhe-kinder-blau-8-5bac6f070c3c81.2617557315380272710501.jpg")
+                )
+              ]
+            ),
+            )
+          ),
+          SizedBox(
+            height : 20,
+          ),
+          Container(
+            height : 120,
+            decoration : BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              color : Color.fromARGB(255, 248, 192, 205),
+              boxShadow : [
+              BoxShadow(
+                color : Color.fromARGB(255, 248, 192, 205).withOpacity(0.5),
+                spreadRadius : 5,
+                blurRadius : 7,
+                offset : Offset(0,3)
+              )
+            ],
+            ),
+            child : Container(
+              padding : const EdgeInsets.all(10),
+              child : Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children : [
+                Container(
+                  margin : const EdgeInsets.only(left : 10,top : 8),
+                  width : 170,
+                  child : Column(
+                    children : [
+                       Container(
+                        padding : const EdgeInsets.only(right : 20),
+                        width : 300,
+                        child : Column(
+                          children : [
+                            Text(
+                          "Nike ZoomX Vaporly",
+                          style : TextStyle(fontSize : 16),
+                        ),
+                            Container(
+                              margin : const EdgeInsets.only(top : 4,left: 4),
+                              width : 165,
+                              child : 
+                              Text(
+                          "Men's Rood Racing Shoe",
+                          style : TextStyle(fontSize : 13),
+                          textAlign : TextAlign.left,
+                        ),
+                            )
+                          ]
+                        )
+                      ),
+                      Container(
+                        margin : const EdgeInsets.only(top : 24,left : 4),
+                        width : 200,
+                        child : Text(
+                          "19,695",
+                          style : TextStyle(fontSize : 14)
+                        )
+                      )
+                    ]
+                  )
+                ),
+                Container(
+                  width : 120,
+                  child : Image.network("https://img2.pngdownload.id/20180927/pqt/kisspng-nike-air-zoom-pegasus-34-mens-adidas-sports-shoes-nike-zoom-pegasus-34-gs-grade-school-junior-p-5bad19680ce097.2924631815380708880528.jpg")
+                )
+              ]
+            ),
+            )
+          ),
+          SizedBox(
+            height : 20,
+          ),
+          Container(
+            height : 120,
+            decoration : BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              color : Color.fromARGB(255, 250, 219, 219),
+              boxShadow : [
+              BoxShadow(
+                color : Color.fromARGB(255, 250, 219, 219).withOpacity(0.5),
+                spreadRadius : 5,
+                blurRadius : 7,
+                offset : Offset(0,3)
+              )
+            ],
+            ),
+            child : Container(
+              padding : const EdgeInsets.all(10),
+              child : Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children : [
+                Container(
+                  margin : const EdgeInsets.only(left : 10,top : 8),
+                  width : 170,
+                  child : Column(
+                    children : [
+                       Container(
+                        padding : const EdgeInsets.only(right : 20),
+                        width : 300,
+                        child : Column(
+                          children : [
+                            Text(
+                          "Nike Air Force 1 S50",
+                          style : TextStyle(fontSize : 16),
+                        ),
+                            Container(
+                              margin : const EdgeInsets.only(top : 4,left: 4),
+                              width : 165,
+                              child : 
+                              Text(
+                          "Older Kids' Shoe",
+                          style : TextStyle(fontSize : 13),
+                          textAlign : TextAlign.left,
+                        ),
+                            )
+                          ]
+                        )
+                      ),
+                      Container(
+                        margin : const EdgeInsets.only(top : 20,left : 4),
+                        child : Align(
+                          alignment : Alignment.centerLeft,
+                          child : Column(
+                          children : [
+                            Text(
+                          "1 Colour",
+                          style : TextStyle(fontSize : 14)
+                        ),
+                            Container(
+                              width : 50,
+                              child : Text(
+                          "6,295",
+                          style : TextStyle(fontSize : 14)
+                        )
+                            )
+                          ]
+                        )
+                        ) 
+                      )
+                    ]
+                  )
+                ),
+                Container(
+                  width : 120,
+                  child : Image.network("https://img2.pngdownload.id/20180702/jce/kisspng-air-force-1-sneakers-skate-shoe-nike-air-force-one-5b3ab986c8edf9.510882581530575238823.jpg")
+                )
+              ]
+            ),
+            )
+          ),
+          SizedBox(
+            height : 20,
+          ),
+          Container(
+            height : 120,
+            decoration : BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              color : Color.fromARGB(255, 248, 248, 151),
+              boxShadow : [
+              BoxShadow(
+                color : Color.fromARGB(255, 248, 248, 151).withOpacity(0.5),
+                spreadRadius : 5,
+                blurRadius : 7,
+                offset : Offset(0,3)
+              )
+            ],
+            ),
+            child : Container(
+              padding : const EdgeInsets.all(10),
+              child : Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children : [
+                Container(
+                  margin : const EdgeInsets.only(left : 10,top : 8),
+                  width : 170,
+                  child : Column(
+                    children : [
+                       Container(
+                        padding : const EdgeInsets.only(right : 40),
+                        width : 500,
+                        child : Column(
+                          children : [
+                            Text(
+                          "Nike Waffle One",
+                          style : TextStyle(fontSize : 16),
+                        ),
+                            Container(
+                              margin : const EdgeInsets.only(top : 4,left : 8),
+                              width : 165,
+                              child : 
+                              Text(
+                          "Men's Shoes",
+                          style : TextStyle(fontSize : 13),
+                          textAlign : TextAlign.left,
+                        ),
+                            )
+                          ]
+                        )
+                      ),
+                      Container(
+                        margin : const EdgeInsets.only(top : 24,left : 10),
+                        width : 200,
+                        child : Text(
+                          "19,695",
+                          style : TextStyle(fontSize : 14)
+                        )
+                      )
+                    ]
+                  )
+                ),
+                Container(
+                  width : 120,
+                  child : Image.network("https://www.freepnglogos.com/uploads/shoes-png/shoes-wasatch-running-3.png")
+                )
+              ]
+            ),
+            )
+          ),
+          SizedBox(
+            height : 20,
+          ),
+        ]
+      )
+    ));
   }
 }
